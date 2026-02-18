@@ -9,9 +9,6 @@ import com.example.cs101_test.exercises.Part5InterfacesAndAbstractClasses
 fun main() {
     println("Welcome to the Kotlin exercises!")
 
-    // Uncomment and complete the exercises as specified.
-    // Some exercises you might have to check yourself if you want to check the solution.
-
     println("\n--------------------------------------")
     println("Part 1 Basics")
     // ---------------------- EXERCISE 1

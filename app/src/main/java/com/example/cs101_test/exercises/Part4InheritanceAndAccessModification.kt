@@ -14,19 +14,25 @@ object Part4InheritanceAndAccessModification {
         fun turnOn() {
             isOn = true
         }
+
         fun turnOff() {
             isOn = false
         }
+
         override fun toString(): String {
             return "[brand=$brand, powerConsumption=$powerConsumption, isOn=$isOn]"
         }
     }
-    class WashingMachine(brand: String, powerConsumption: Int) : Appliance(brand, powerConsumption, false) {
+
+    class WashingMachine(brand: String, powerConsumption: Int) :
+        Appliance(brand, powerConsumption, false) {
         fun showFeatures() {
             println("This washing machine has a quick wash feature.")
         }
     }
-    class Refrigerator(brand: String, powerConsumption: Int) : Appliance(brand, powerConsumption, false) {
+
+    class Refrigerator(brand: String, powerConsumption: Int) :
+        Appliance(brand, powerConsumption, false) {
         fun showFeatures() {
             println("This refrigerator has a freezer feature.")
         }
@@ -40,6 +46,53 @@ object Part4InheritanceAndAccessModification {
     // E.g. an Employee.work() should print one thing and Developer.work() another
     // The work() method must print something and not be blank, but you can choose what you want it to print!
 
+    open class Employee( // Jeg ved ik hvorfor den ikke passer testen, jeg har også spurgt chatgpt og den kan ikke hjælpe
+
+        val name: String,
+        var position: String,
+        var salary: Double
+    ) {
+        open fun work() {
+            println("$name is working as a(n): $position")
+        }
+
+    }
+
+    class Manager(
+        name: String,
+        position: String,
+        salary: Double,
+        val department: String
+    ) : Employee(name, position, salary) {
+
+        override fun work() {
+            println("$name is managing the $department department.")
+        }
+    }
+
+    class Developer(
+        name: String,
+        position: String,
+        salary: Double,
+        val programmingLanguage: String
+    ) : Employee(name, position, salary) {
+
+        override fun work() {
+            println("$name is coding in $programmingLanguage.")
+        }
+    }
+
+    class Intern(
+        name: String,
+        position: String,
+        salary: Double,
+        val school: String
+    ) : Employee(name, position, salary) {
+
+        override fun work() {
+            println("$name is learning from $school while working.")
+        }
+    }
 
     // ---------------------- EXERCISE 3
     // Create a class named Course to represent course information
